@@ -589,11 +589,35 @@
         }
 
         // Simulating submission
-        const submitBtn = this.querySelector('.login-submit-btn');
-        submitBtn.textContent = 'Logging in...';
+        const submitBtn = this.querySelector(".login-submit-btn");
+
         submitBtn.disabled = true;
-        setTimeout(() => { window.location.href = '#'; }, 1000);
-      });
+        submitBtn.textContent = "Logging in...";
+
+        try {
+        // Simulated authentication
+        new Promise(resolve => setTimeout(resolve, 1000));
+
+        // Demo credentials
+        if (
+        email === "user@example.com" &&
+        password === "Password@123"
+        ) {
+        window.location.href = "main.html";
+        return;
+        }
+
+        throw new Error("Invalid email or password.");
+
+        } catch (err) {
+
+        errorMsg.textContent = err.message;
+
+        } finally {
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Login";
+      }});
     }
 
     // Signup Validation
