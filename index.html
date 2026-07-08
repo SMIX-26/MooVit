@@ -588,17 +588,17 @@
           return;
         }
 
-        // Simulating submission
+        
         const submitBtn = this.querySelector(".login-submit-btn");
 
         submitBtn.disabled = true;
         submitBtn.textContent = "Logging in...";
 
         try {
-        // Simulated authentication
+        
         new Promise(resolve => setTimeout(resolve, 1000));
 
-        // Demo credentials
+        
         if (
         email === "user@example.com" &&
         password === "Password@123"
